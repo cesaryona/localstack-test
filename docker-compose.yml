@@ -1,0 +1,18 @@
+version: '3'
+services:
+  localstack:
+    image: localstack/localstack
+    container_name: localstack
+    ports:
+      - "4566:4566"  # Porta para serviços da AWS
+      - "4510:4510"  # Porta para a API do LocalStack
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "./localstack:/etc/localstack"
+    networks:
+      - localstack-network
+
+networks:
+  localstack-network:
+    driver: bridge

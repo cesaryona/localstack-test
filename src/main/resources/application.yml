@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: upload
+
+cloud:
+  aws:
+    region:
+      static: us-east-1
+    s3:
+      endpoint: http://localhost:4566
+    stack-name: localstack
